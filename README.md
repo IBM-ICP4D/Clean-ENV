@@ -1,10 +1,23 @@
 # Clean-ENV-Job
-This project will showdown the unused environment in ICP4d
+This project will showdown the unused environment in Cloud Pak for Data
 
-This Job is only for Demo or Dev use only.
+Currently, there's no way to auto-clean/stop active environments within projects that have been idle for a particular period of time. And as a result of this, the platform becomes unusable and inaccessible after a period of time due to high memory usage.
+ 
+As a workaround we can create a Kubernetes cron job that runs every hour and delete following environments/pods that idle longer than a day and free up resource:
+ 
+- spss-modeler-server 
+- zeppelin-server 
+- dods-processor-server 
+- wex-server 
+- shaper-server 
+- rstudio-server 
+- jupyter-server 
+- jupyter-py36-server 
+- jupyter-py35-server
 
 
-# how to use
+
+# How to use
 
 1. unzip Clean-ENV-Job then scp this folder to you cluster
 ```
@@ -20,9 +33,8 @@ cd /ibm/Clean-ENV-Job
 3. login to icp to be able to access kubectl and docker
 
 if you can access kubectl and docker, you can skip this step.
-Normally the username is `admin` password is `admin` or `Passw0rdPassw0rdPassw0rdPassw0rd`, admin may also change it to something else.
 ```
-cloudctl login -a https://mycluster.icp:8443 --skip-ssl-validation -u admin -p Passw0rdPassw0rdPassw0rdPassw0rd -n default
+cloudctl login -a https://mycluster.icp:8443 --skip-ssl-validation -u admin -p <password> -n default
 ```
 4. build and push docker image
 ```
