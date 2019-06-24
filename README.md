@@ -1,4 +1,4 @@
-# Clean-ENV-Job
+# Clean Environment
 This project will showdown the unused environment in Cloud Pak for Data
 
 Currently, there's no way to auto-clean/stop active environments within projects that have been idle for a particular period of time. And as a result of this, the platform becomes unusable and inaccessible after a period of time due to high memory usage.
