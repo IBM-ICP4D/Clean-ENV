@@ -1,0 +1,23 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: clean-env
+  namespace: zen
+spec:
+  schedule: "0 */1 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: clean-env-job
+              image: mycluster.icp:8500/zen/clean-env:1.0.0
+              command: ["node",  "clean_env.js"]
+              env:
+              - name: TARGET_DEPLOY
+                value: "spss-modeler-server, zeppelin-server, dods-processor-server, wex-server, shaper-server, rstudio-server, jupyter-server, jupyter-py36-server, jupyter-py35-server"
+              - name: KILL_AGE
+                value: "86400"
+              - name: TARGET_NAMESPACE
+                value: "zen"
+          restartPolicy: OnFailure

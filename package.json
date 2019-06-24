@@ -1,0 +1,19 @@
+{
+  "name": "clean-env-job",
+  "version": "1.0.0",
+  "description": "This project will showdown the unused environment in Watson Studio",
+  "main": "clean_env.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "2wp": "telepresence --namespace zen --swap-deployment filemgmt --run-shell"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:PrivateCloud/Clean-ENV-Job.git"
+  },
+  "author": "Frank Li",
+  "dependencies": {
+    "async": "^2.6.2",
+    "kubernetes-client": "^6.10.0"
+  }
+}
