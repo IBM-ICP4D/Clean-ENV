@@ -28,17 +28,17 @@ ssh root@<Master#1>
 git clone https://github.com/IBM-ICP4D/Clean-ENV.git
 cd /root/Clean-ENV
 ```
-3. login to icp to be able to access kubectl and docker
+3. Login to icp to be able to access kubectl and docker
 
-If you can access kubectl and docker, you can skip this step.
+   If you can execut kubectl and docker, you can skip this step.
 ```
 cloudctl login -a https://mycluster.icp:8443 --skip-ssl-validation -u admin -p <password> -n default
 ```
-4. build and push docker image
+4. Build and push docker image
 ```
 bash build.sh
 ```
-5. modify settings in the cronjob.yaml
+5. Modify settings in the cronjob.yaml
 ```
 vi cronjob.yaml
 ```
@@ -76,17 +76,16 @@ We will only kill the deployments in this namespace
 default value: zen
 
 ```
-
               - name: TARGET_NAMESPACE
                 value: "zen"
 ```
 
-5. start cronjob
+5. Start cronjob
 ```
 kubectl apply -f cronjob.yaml
 ```
 
-5. stop cronjob
+5. Stop cronjob
 ```
 kubectl -n zen delete cronjob clean-env
 ```
