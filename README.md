@@ -29,7 +29,8 @@ git clone https://github.com/IBM-ICP4D/Clean-ENV.git
 cd /root/Clean-ENV
 ```
 3. login to icp to be able to access kubectl and docker
-if you can access kubectl and docker, you can skip this step.
+
+If you can access kubectl and docker, you can skip this step.
 ```
 cloudctl login -a https://mycluster.icp:8443 --skip-ssl-validation -u admin -p <password> -n default
 ```
