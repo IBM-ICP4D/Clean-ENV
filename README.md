@@ -19,19 +19,16 @@ As a workaround we can create a Kubernetes cron job that runs every hour and del
 
 # How to use
 
-1. unzip Clean-ENV-Job then scp this folder to you cluster
+1. Login to Master#1 node of your cluster
 ```
-export clusterIP=9.30.222.66
-scp -r ./Clean-ENV-Job root@$clusterIP:/ibm/Clean-ENV-Job
+ssh root@<Master#1>
 ```
-2. ssh to your cluster then cd to /ibm/Clean-ENV-Job
+2. Clone the repository on Master#1 node 
 ```
-ssh root@clusterIP
-cd /ibm/Clean-ENV-Job
+git clone https://github.com/IBM-ICP4D/Clean-ENV.git
+cd /root/Clean-ENV
 ```
-
 3. login to icp to be able to access kubectl and docker
-
 if you can access kubectl and docker, you can skip this step.
 ```
 cloudctl login -a https://mycluster.icp:8443 --skip-ssl-validation -u admin -p <password> -n default
@@ -41,7 +38,6 @@ cloudctl login -a https://mycluster.icp:8443 --skip-ssl-validation -u admin -p <
 bash build.sh
 ```
 5. modify settings in the cronjob.yaml
-
 ```
 vi cronjob.yaml
 ```
