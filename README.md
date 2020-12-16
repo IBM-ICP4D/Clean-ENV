@@ -32,7 +32,7 @@ cd /root/Clean-ENV
 
    If you can execut kubectl and docker, you can skip this step.
 ```
-cloudctl login -a https://mycluster.icp:8443 --skip-ssl-validation -u admin -p <password> -n default
+oc login  -n default
 ```
 4. Build and push docker image
 ```
