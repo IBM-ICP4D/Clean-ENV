@@ -14,6 +14,6 @@
   "author": "Frank Li",
   "dependencies": {
     "async": "^2.6.2",
-    "kubernetes-client": "^6.10.0"
+    "kubernetes-client": "^9.0.0"
   }
 }
